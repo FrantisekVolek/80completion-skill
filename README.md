@@ -1,6 +1,6 @@
 # 80% Completion — Quarterly Epic Report
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that generates quarterly epic completion reports from Jira. It fetches all committed initiatives for a quarter, finds their linked epics (both labeled and unlabeled), and produces detailed status breakdowns — overall and per domain — with change tracking against previous reports.
+An AI-assisted skill for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [GitHub Copilot](https://github.com/features/copilot) that generates quarterly epic completion reports from Jira. It fetches all committed initiatives for a quarter, finds their linked epics (both labeled and unlabeled), and produces detailed status breakdowns — overall and per domain — with change tracking against previous reports.
 
 ## What it does
 
@@ -24,12 +24,12 @@ Given a quarter (e.g. "Q1 2026"), this skill:
 
 - Python 3.8+
 - A Jira Cloud instance with REST API access
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (for the `/80completion` skill command)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) or [GitHub Copilot](https://github.com/features/copilot) (for AI-assisted usage — optional, works as standalone CLI too)
 
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/80completion-skill.git
+git clone https://github.com/FrantisekVolek/80completion-skill.git
 cd 80completion-skill
 pip install -r requirements.txt
 cp config.example.yaml config.yaml
@@ -69,9 +69,13 @@ Or use the Jira admin: **Settings → Issues → Custom fields** — the ID is i
 
 ## Usage
 
-### With Claude Code (recommended)
+### With Claude Code
 
-Simply run the `/80completion` command in Claude Code. It will ask you for the quarter and handle everything.
+Run the `/80completion` command in Claude Code. It will ask you for the quarter and handle everything.
+
+### With GitHub Copilot
+
+Open the project in VS Code with Copilot enabled. The `.github/copilot-instructions.md` file gives Copilot full context about the skill. Ask Copilot to run the 80% completion report and it will guide you through the steps.
 
 ### Standalone CLI
 
