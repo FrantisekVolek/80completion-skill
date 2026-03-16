@@ -1,0 +1,43 @@
+# 80% Completion Skill — Configuration
+# Copy this file to config.yaml and fill in your values.
+
+# Jira connection (can also be set via environment variables)
+# Environment variables take precedence over config file values.
+#   JIRA_URL, JIRA_USERNAME, JIRA_API_TOKEN
+jira:
+  url: "https://your-instance.atlassian.net"
+  username: "your-email@example.com"
+  api_token: ""  # Generate at https://id.atlassian.com/manage-profile/security/api-tokens
+
+# How to identify committed initiatives in Jira
+initiatives:
+  # Issue type name for initiatives
+  issue_type: "Initiative"
+  # Label that marks an initiative as committed
+  commit_label: "commit"
+  # Custom field ID for quarter selection (checkboxes field)
+  # The JQL filter will be: cf[XXXXX] = "Q1 2026"
+  quarter_field_id: "12304"
+  # Custom field ID for priority/ranking (numeric). Set to null to disable.
+  prio_field_id: "11452"
+  # Custom field ID for domain (dropdown). Set to null to disable.
+  domain_field_id: "11445"
+
+# How quarter labels appear on epics
+# Given quarter "Q1 2026", the tool searches for epics with these label patterns:
+#   primary: 26Q1   (format: YYQn)
+#   alternative: 26_Q1  (format: YY_Qn)
+# No configuration needed — this is derived automatically from the quarter input.
+
+# Epic discovery
+epics:
+  # Issue type name for epics
+  issue_type: "Epic"
+  # Which issue link directions to follow from initiatives to find epics
+  # The tool checks both inwardIssue and outwardIssue by default
+  linked_type_name: "Epic"  # Match linked issues where issuetype.name equals this
+
+# Output
+output:
+  # Parent folder for reports
+  output_dir: "80completion-outputs"

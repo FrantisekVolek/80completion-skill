@@ -1,0 +1,5 @@
+config.yaml
+80completion-outputs/
+__pycache__/
+*.pyc
+.env
